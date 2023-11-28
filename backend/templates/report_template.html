@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Monthly Progress Report</title>
+</head>
+<body>
+    <h1>Hello {{ username }}. Monthly Progress Report for the month: {{month}}/{{year}}</h1>    
+    <h2>Bookings:</h2>
+    {% if bookings %}
+    <table>
+        <tr>
+            <th>Show name</th>
+            <th>Show rating</th>
+            <th>Theatre name</th>
+            <th>No. of tickets</th>
+        </tr>
+        {% for booking in info %}
+        <tr>
+            <td>{{ booking.name }}</td>
+            <td>{{ booking.rating }}</td>
+            <td>{{ booking.theatre }}</td>
+            <td>{{ booking.tickets }}</td>
+        </tr>
+        {% endfor %}
+    </table>    
+    {% else %}
+        <p>You did not book anything last month.</p>
+    {% endif %}
+    <h4>Your total number of bookings this month: {{ count }}</h4>
+    <h4>Total number of tickets this month: {{ total_tickets }}</h4>
+</body>
+</html>

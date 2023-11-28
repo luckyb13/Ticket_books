@@ -1,0 +1,131 @@
+swagger: '2.0'
+info:
+  title: Ticket Show API
+  version: 1.0.0
+basePath: /api
+schemes:
+  - http
+  - https
+consumes:
+  - application/json
+produces:
+  - application/json
+
+paths:
+  /register:
+    post:
+      tags:
+        - User Registration
+      summary: Register a new user
+      responses:
+        200:
+          description: User registered successfully
+
+  /login:
+    post:
+      tags:
+        - User Login
+      summary: Authenticate user and return JWT token
+      responses:
+        200:
+          description: User logged in successfully
+
+  /admin/theatres:
+    get:
+      tags:
+        - Theatre Management
+      summary: Get list of theatres
+      responses:
+        200:
+          description: List of theatres
+    post:
+      tags:
+        - Theatre Management
+      summary: Create a new theatre
+      responses:
+        200:
+          description: Theatre created successfully
+
+  /theatre/{id}:
+    put:
+      tags:
+        - Theatre Management
+      summary: Update a theatre
+      responses:
+        200:
+          description: Theatre updated successfully
+    delete:
+      tags:
+        - Theatre Management
+      summary: Delete a theatre
+      responses:
+        200:
+          description: Theatre deleted successfully
+
+  /{theatre_id}/shows:
+    get:
+      tags:
+        - Show Management
+      summary: Get list of shows for a theatre
+      responses:
+        200:
+          description: List of shows for the theatre
+    post:
+      tags:
+        - Show Management
+      summary: Create a new show for a theatre
+      responses:
+        200:
+          description: Show created successfully
+
+  /{theatre_id}/show/{show_id}:
+    put:
+      tags:
+        - Show Management
+      summary: Update a show for a theatre
+      responses:
+        200:
+          description: Show updated successfully
+    delete:
+      tags:
+        - Show Management
+      summary: Delete a show for a theatre
+      responses:
+        200:
+          description: Show deleted successfully
+
+  /user/{user_id}/theatres:
+    get:
+      tags:
+        - User Theatre List
+      summary: Get list of theatres for a user
+      responses:
+        200:
+          description: List of theatres for the user
+
+  /user/{user_id}/shows:
+    get:
+      tags:
+        - User Show List
+      summary: Get list of shows for a user
+      responses:
+        200:
+          description: List of shows for the user
+
+  /user/{user_id}/{show_id}/ticketBookings:
+    post:
+      tags:
+        - User Booking
+      summary: Book tickets for a show
+      responses:
+        200:
+          description: Tickets booked successfully
+
+  /user/{user_id}/bookings:
+    get:
+      tags:
+        - User Booking List
+      summary: Get list of bookings for a user
+      responses:
+        200:
+          description: List of bookings for the user
